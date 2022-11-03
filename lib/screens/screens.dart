@@ -1,7 +1,7 @@
+export 'package:curso_udemy/screens/listview_builder_screen.dart';
+export 'package:curso_udemy/screens/slider_screen.dart';
 export 'package:curso_udemy/screens/inputs_screens.dart';
-
 export 'package:curso_udemy/screens/avatar_screen.dart';
-
 export 'package:curso_udemy/screens/home_screen.dart';
 export 'package:curso_udemy/screens/listview2_screen.dart';
 export 'package:curso_udemy/screens/alert_screen.dart';

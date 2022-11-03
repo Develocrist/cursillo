@@ -6,6 +6,11 @@ class CustomInputField extends StatelessWidget {
   final String? helperText;
   final IconData? icon;
   final IconData? suffixIcon;
+  final TextInputType? teclado;
+  final bool esPassword;
+
+  final String formProperty;
+  final Map<String, String> formValues;
 
   const CustomInputField({
     Key? key,
@@ -14,17 +19,20 @@ class CustomInputField extends StatelessWidget {
     this.helperText,
     this.icon,
     this.suffixIcon,
+    this.teclado,
+    this.esPassword = false,
+    required this.formProperty,
+    required this.formValues,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+        obscureText: esPassword,
+        keyboardType: teclado,
         autofocus: false,
         initialValue: '',
-        onChanged: (value) {
-          //con esta funcion de validacion uno puede decidir que caracteres se pueden o no usar
-          print('value $value');
-        },
+        onChanged: (value) => formValues[formProperty] = value,
         validator: (value) {
           if (value == null) return 'Este campo es requerido';
           return value.length < 3 ? 'Mínimo de 3 letras' : null;
